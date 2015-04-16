@@ -1,5 +1,7 @@
 package
 {
+	import City.CityView;
+	import Crafting.CraftingView;
 	import flash.desktop.NativeApplication;
 	import flash.events.Event;
 	import flash.display.Sprite;
@@ -24,9 +26,10 @@ package
 			// touch or gesture?
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
-			// entry point
+			// add the city view
+			//addChild(new CityView());
 			
-			// new to AIR? please read *carefully* the readme.txt files!
+			addChild(new CraftingView());
 		}
 		
 		private function deactivate(e:Event):void 

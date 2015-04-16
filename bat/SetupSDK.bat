@@ -2,11 +2,12 @@
 
 :: Path to Flex SDK
 set FLEX_SDK=C:\Users\Dragoola\AppData\Local\FlashDevelop\Apps\flexsdk\4.6.0
+set AIR_SDK=C:\Users\Dragoola\AppData\Local\FlashDevelop\Apps\ascsdk\16.0.0
+
 set AUTO_INSTALL_IOS=yes
 
 :: Path to Android SDK
 set ANDROID_SDK=C:\Program Files (x86)\FlashDevelop\Tools\android
-
 
 :validation
 if not exist "%FLEX_SDK%\bin" goto flexsdk
@@ -32,6 +33,6 @@ if %PAUSE_ERRORS%==1 pause
 exit
 
 :succeed
-set PATH=%FLEX_SDK%\bin;%PATH%
+set PATH=%PATH%;%AIR_SDK%\bin;%FLEX_SDK%\bin
 set PATH=%PATH%;%ANDROID_SDK%\platform-tools
 
