@@ -1,15 +1,17 @@
 package WorldMap 
 {
+	import WorldMap.WorldMapController;
 	/**
 	 * ...
-	 * @author Dragoola
+	 * @author Gicadin
 	 */
 	public class WorldMapModel 
 	{
+		private var _testWorldMapController:WorldMapController; 
 		
 		public function WorldMapModel() 
 		{
-			
+			//_testWorldMapController = new WorldMapController();
 		}
 		
 	}

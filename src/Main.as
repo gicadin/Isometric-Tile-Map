@@ -1,6 +1,7 @@
 package
 {
 	import City.CityView;
+	import WorldMap.WorldMapView;
 	import Crafting.CraftingView;
 	import flash.desktop.NativeApplication;
 	import flash.events.Event;
@@ -12,7 +13,7 @@ package
 	
 	/**
 	 * ...
-	 * @author Dragoola
+	 * @author ...
 	 */
 	public class Main extends Sprite 
 	{
@@ -26,10 +27,12 @@ package
 			// touch or gesture?
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
+			addChild(new WorldMapView()); 
+			
 			// add the city view
 			//addChild(new CityView());
 			
-			addChild(new CraftingView());
+			//addChild(new CraftingView());
 		}
 		
 		private function deactivate(e:Event):void 
