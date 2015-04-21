@@ -1,6 +1,8 @@
 package Crafting 
 {
 	import flash.display.Sprite;
+	import Objects.Book;
+	import Subviews.Bookshelf;
 	import Widgets.ItemGrid;
 	
 	/**
@@ -11,12 +13,21 @@ package Crafting
 	{
 		private var _model:CraftingModel;
 		private var _controller:CraftingController;
+		
+		private var _bookshelf:Bookshelf;
 		public function CraftingView() 
 		{
 			super();
 			_model = new CraftingModel();
 			_controller = new CraftingController();
-			addChild(new ItemGrid(5, 5));
+			_bookshelf = new Bookshelf();
+			this.addChild(_bookshelf);
+			
+			_bookshelf.addBook(new Book(), 0);
+			_bookshelf.addBook(new Book(), 0);
+			
+			_bookshelf.addBook(new Book(), 1);
+			_bookshelf.addBook(new Book(), 2);
 		}
 	}
 }

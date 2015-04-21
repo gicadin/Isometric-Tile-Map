@@ -15,7 +15,7 @@ package Widgets
 		[Embed(source="../../assets/inventory_tile.png")]
 		public static var InventoryTile:Class;
 	
-		private const CELL_SIDE:int = 100;
+		private var CELL_SIDE:int = 100;
 		private var _horizontalSize:int;
 		private var _verticalSize:int;
 		private var _cells:Vector.<Vector.<Boolean>>
