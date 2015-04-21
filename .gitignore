@@ -1,0 +1,4 @@
+*.swf
+obj/RealmofKingsConfig.old
+obj/RealmofKingsConfig.xml
+*.bat
