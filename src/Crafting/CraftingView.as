@@ -2,7 +2,7 @@ package Crafting
 {
 	import flash.display.Sprite;
 	import Objects.Book;
-	import Subviews.Bookshelf;
+	import Widgets.Bookshelf;
 	import Widgets.ItemGrid;
 	
 	/**
