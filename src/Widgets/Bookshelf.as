@@ -24,6 +24,8 @@ package Widgets
 		private static var BOOK_DISTANCE:Number = 100;
 		private var bookLayer:Sprite;
 		private var shelvesOccupancy:Vector.<int>;
+		private var scrollPanel:ScrollPanel;
+		private var numShelves:int = 5
 		public function Bookshelf() 
 		{
 			super();
@@ -40,29 +42,30 @@ package Widgets
 		
 		private function initialize(e:Event):void
 		{
-			// add the background
+			// create the background
 			var bgBMP:Bitmap = new LibraryBackgroundAsset() as Bitmap;
 			var bgBMD:BitmapData = bgBMP.bitmapData;
 			var bg:Sprite = new Sprite();
 			bg.graphics.clear();
 			bg.graphics.beginBitmapFill(bgBMD);
-			bg.graphics.drawRect(0,0,stage.stageWidth, stage.stageHeight);
-			addChild(bg);
+			bg.graphics.drawRect(0,0,stage.stageWidth, stage.stageHeight * 2);
 			
 			// add the shelfs
-			var i:Number = 0;
-			while (i < this.height)
+			for (var i:int = 0; i < numShelves; i++ )
 			{
 				// add a shelf at this height
 				var currentShelf:Bitmap = new ShelfAsset() as Bitmap;
 				bg.addChild(currentShelf);
-				currentShelf.y = i;
-				i += SHELF_HEIGHT;
+				currentShelf.y = i * SHELF_HEIGHT;
 			}
 			
-			// add the book layer
-			this.addChild(bookLayer);
-			
+			var panel:Sprite = new Sprite();
+			panel.addChild(bg);
+			panel.addChild(bookLayer);
+			// create the scroll panel
+			scrollPanel = new ScrollPanel(panel, stage.stageWidth, stage.stageHeight);
+			scrollPanel.updateScroll();
+			this.addChild(scrollPanel);
 		}
 		
 		public function addBook(book:Book, shelf:int):void

@@ -27,7 +27,6 @@ package Widgets
 				this.addChild(barBitmap);
 			else
 			{
-				barBitmap.rotation = 90;
 				this.addChild(barBitmap);
 			}
 		}

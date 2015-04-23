@@ -2,3 +2,5 @@
 obj/RealmofKingsConfig.old
 obj/RealmofKingsConfig.xml
 *.bat
+cert/RealmofKings.p12
+*.apk
