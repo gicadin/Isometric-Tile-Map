@@ -52,6 +52,7 @@ package Widgets
 			{
 				// add horizontal scroll bar
 				HScrollBar = new ScrollBar(false);
+				HScrollBar.y = panelMask.height - HScrollBar.height;
 				this.addChild(HScrollBar);
 			}
 		}
@@ -123,19 +124,10 @@ package Widgets
 		
 		private function getScrollBarPos(vertical:Boolean = true):Number
 		{
-			var pos:Number;
 			if (vertical)
-			{
-				var percent:Number = Math.abs(panel.y / (panelMask.height - panel.height))
-				pos = (panelMask.height - VScrollBar.height) * percent;
-			}
+				return (panelMask.height - VScrollBar.height) * Math.abs(panel.y / (panelMask.height - panel.height));
 			else
-			{
-				var percent:Number = Math.abs(panel.x / (panelMask.width - panel.width))
-				pos = (panelMask.width - HScrollBar.width) * percent;
-			}
-			return pos;
-
+				return (panelMask.width - HScrollBar.width) * Math.abs(panel.x / (panelMask.width - panel.width));
 		}
 		
 	}
