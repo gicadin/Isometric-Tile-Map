@@ -22,7 +22,7 @@ package Widgets
 		
 		private static var MAX_SPEED:Number = 5;
 		
-		private static var DRAG:Number = 0.05;
+		private static var DRAG:Number = 0.1;
 		
 		public function ScrollPanel(panel:Sprite, width:Number, height:Number, showVScrollBar:Boolean = true, showHScrollBar = true) 
 		{
