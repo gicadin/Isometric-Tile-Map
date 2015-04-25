@@ -60,7 +60,10 @@ package
 		{
 			//pui aici ce vrei
 			this.removeChildren();
-			addChild(new WorldMapView()); 
+			var map:WorldMapView = new WorldMapView(); 
+			
+				
+			addChild(map); 
 		}
 		
 		private function onCrafting(e:Event):void

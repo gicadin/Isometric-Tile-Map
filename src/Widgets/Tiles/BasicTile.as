@@ -3,6 +3,7 @@ package Widgets.Tiles
 	import flash.display.Bitmap;
 	import flash.display.NativeWindowDisplayState;
 	import flash.display.Sprite;
+	import flash.geom.Point;
 	/**
 	 * Basic Tile to be used in world map and town, to be extended by all other types of tiles
 	 * @author Gicadin
@@ -15,7 +16,7 @@ package Widgets.Tiles
 		private var basicTile:Bitmap = new basicTileClass(); 
 		
 		private var xPos:int, yPos:int, zPos:int; 
-		public static var tileSize:int = 50; // in pixels, the tile is a square = each side equal
+		public static var tileSize:int = 64; // in pixels, the tile is a square = each side equal
 		
 		private var tileType:String;
 		private var tileTypeList:Vector.<String>; 
@@ -28,7 +29,7 @@ package Widgets.Tiles
 			basicTile.x = x; 
 			basicTile.y = y; 
 			
-			addChild(basicTile); 
+			addChild(basicTile);
 			
 		}
 		
