@@ -1,6 +1,7 @@
 *.swf
 obj/RealmofKingsConfig.old
 obj/RealmofKingsConfig.xml
+bat/
 *.bat
 cert/RealmofKings.p12
 *.apk

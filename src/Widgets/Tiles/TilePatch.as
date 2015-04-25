@@ -13,10 +13,14 @@ package Widgets.Tiles
 		public function TilePatch(location:int)
 		{
 			var x:int = 0, y:int = 0; 
-			for ( var i:int = 0; i < patchSize * patchSize; i++ ) 
+			for ( var i:int = 0; i < patchSize; i++ ) 
 			{
-				addChild(new BasicTile(x * BasicTile.tileSize, y * BasicTile.tileSize, 0 ));
-				if ( x % ( patchSize-1 ) == 0 && x != 0 ) { x = 0; y += 1;  } else { x += 1; } // patchSize -1 because it starts at 0 
+				for ( var j:int = 0; j < patchSize; j ++ ) 
+				{
+					x = j * BasicTile.tileSize;
+					y = i * BasicTile.tileSize;
+					addChild(new BasicTile(x, y, 0 ));
+				}
 			}
 		}
 		
