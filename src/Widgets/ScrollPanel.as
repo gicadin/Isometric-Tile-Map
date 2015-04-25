@@ -1,6 +1,5 @@
 package Widgets 
 {
-	//import com.greensock.TweenLite;
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
@@ -49,7 +48,7 @@ package Widgets
 				VScrollBar.x = panelMask.width - VScrollBar.width;
 			}
 			
-			if ((panel.width > panelMask.width) && (false))
+			if (panel.width > panelMask.width)
 			{
 				// add horizontal scroll bar
 				HScrollBar = new ScrollBar(false);
@@ -111,10 +110,15 @@ package Widgets
 		{
 			// update the panel's position by the delta
 			if (VScrollBar)
+			{
 				panelTargetY = Math.min(panelStartY + (e.stageY - eventStartY), 0);
 				panelTargetY = Math.max(panelTargetY, panelMask.height - panel.height);
+			}
 			if (HScrollBar)
+			{
 				panelTargetX = Math.min(panelStartX + (e.stageX - eventStartX), 0);
+				panelTargetX = Math.max(panelTargetX, panelMask.width - panel.width);
+			}
 		}
 		
 		private function getScrollBarPos(vertical:Boolean = true):Number
@@ -122,22 +126,16 @@ package Widgets
 			var pos:Number;
 			if (vertical)
 			{
-				var topExcess:Number = Math.abs(panel.y - panelMask.y);
-				var botExcess:Number = Math.abs((panel.y + panel.height) - (panelMask.y + panelMask.height));
-				if (botExcess == 0)
-					return panelMask.height - VScrollBar.height;
-				pos = Math.min((topExcess / botExcess * panelMask.height) - VScrollBar.height / 2, panelMask.height - VScrollBar.height);
-				return Math.max(pos, 0);
+				var percent:Number = Math.abs(panel.y / (panelMask.height - panel.height))
+				pos = (panelMask.height - VScrollBar.height) * percent;
 			}
 			else
 			{
-				var leftExcess:Number = Math.abs(panel.x - panelMask.x);
-				var rightExcess:Number = Math.abs((panel.x + panel.width) - (panelMask.x + panelMask.width));
-				if (rightExcess == 0)
-					return panelMask.width - HScrollBar.width;
-				pos = Math.min((leftExcess / rightExcess * panelMask.width) - HScrollBar.width / 2, panelMask.width - HScrollBar.width);
-				return Math.max(pos, 0);
+				var percent:Number = Math.abs(panel.x / (panelMask.width - panel.width))
+				pos = (panelMask.width - HScrollBar.width) * percent;
 			}
+			return pos;
+
 		}
 		
 	}
