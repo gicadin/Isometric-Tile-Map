@@ -19,6 +19,16 @@ package
 	      return false;
 		}
 		
+		public static function BoundByInterval(value:Number, min:Number, max:Number):Number
+		{
+			if (value > max)
+				return max;
+			if (value < min)
+				return min;
+			return value;
+		}
+		
+		
 	}
 
 }

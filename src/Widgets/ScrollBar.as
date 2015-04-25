@@ -54,14 +54,12 @@ package Widgets
 			if (Utils.NearEquals(super.y,newY))
 				return;
 				
-			trace("setting y" + newY + ", old: " + super.y);
 			fadeIn();
 			super.y = newY;
 		}
 		
 		private function fadeIn():void
 		{
-			trace("fading in");
 			// set fadeout timer
 			if ((_alphaTimer) && (_alphaTimer.running))
 			{
@@ -98,7 +96,6 @@ package Widgets
 		
 		private function fadeOut(e:Event = null):void
 		{
-			trace("fading out");
 			_alphaTween = new TweenLite(this, FADE_OUT_DURATION ,{ alpha:0 });
 		}
 		
