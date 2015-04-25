@@ -1,5 +1,6 @@
 package Widgets 
 {
+	import com.greensock.TweenLite;
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
@@ -7,6 +8,7 @@ package Widgets
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.events.TouchEvent;
+	import flash.utils.getTimer;
 	
 	/**
 	 * ...
@@ -55,8 +57,11 @@ package Widgets
 			}
 		}
 		
+		private var lastTime:int = 0;
 		private function onEnterFrame(e:Event):void
 		{
+			//trace("fps= " + (getTimer() - lastTime));
+			lastTime = getTimer();
 			// set the panel position according to the target
 
 			if (VScrollBar)
@@ -110,7 +115,6 @@ package Widgets
 				panelTargetY = Math.max(panelTargetY, panelMask.height - panel.height);
 			if (HScrollBar)
 				panelTargetX = Math.min(panelStartX + (e.stageX - eventStartX), 0);
-			trace(panelTargetY);
 		}
 		
 		private function getScrollBarPos(vertical:Boolean = true):Number
