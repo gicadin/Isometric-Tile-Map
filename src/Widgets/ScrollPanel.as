@@ -24,7 +24,7 @@ package Widgets
 		
 		private static var DRAG:Number = 0.1;
 		
-		public function ScrollPanel(panel:Sprite, width:Number, height:Number, showVScrollBar:Boolean = true, showHScrollBar = true) 
+		public function ScrollPanel(panel:Sprite, width:Number, height:Number, showVScrollBar:Boolean = true, showHScrollBar:Boolean = true) 
 		{
 			super();
 			this.panel = panel;
