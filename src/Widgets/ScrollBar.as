@@ -2,7 +2,7 @@ package Widgets
 {
 	import flash.display.Bitmap;
 	import flash.display.Sprite;
-	import com.greensock.TweenLite;
+	//import com.greensock.TweenLite;
 	import flash.events.Event;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
